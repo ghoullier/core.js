@@ -1,7 +1,7 @@
 (function(w, undefined) {
   // Define sandboxed global variables
-	var d = w.document,
-		  c = w.console;
+  var d = w.document,
+			c = w.console;
   // Initialize
   Core = Core || {};
 
@@ -76,21 +76,21 @@
     // Provide basic function binding, ensure function execution in a specific context
     // Possible calls: Core.bing(this.method, this); OR Core.bing(this, "method");
     Core.bind = function(/*Function|Object*/fn, /*Object|String*/context) {
-		  var tmp, args, binding;
-		  if (typeof context === "string") {
-			  tmp = fn[context];
-			  context = fn;
-			  fn = tmp;
-		  }
-		  if (typeof fn !== "function") {
-			  return undefined;
-		  }
-		  args = Core.slice.call(arguments, 2);
-		  binding = function() {
-			  return fn.apply(context, args.concat(Core.slice.call(arguments)));
-		  };
-		  return binding;
-    };
+			var tmp, args, binding;
+			if (typeof context === "string") {
+				tmp = fn[context];
+				context = fn;
+				fn = tmp;
+			}
+			if (typeof fn !== "function") {
+				return undefined;
+			}
+			args = Core.slice.call(arguments, 2);
+			binding = function() {
+				return fn.apply(context, args.concat(Core.slice.call(arguments)));
+			};
+			return binding;
+		};
     // Alias on native Array.forEach
     Core.forEach = Array.prototype.forEach;
     // Alias on native Array.forEach
@@ -107,7 +107,7 @@
     w.Core = Core;
     // Defered Core intialization to DOMContentLoaded event
     d.addEventListener("DOMContentLoaded", function() {
-    	// Initialize modules of current document 
-    	core_init_recursive();
-	}, false);
+			// Initialize modules of current document 
+			core_init_recursive();
+		}, false);
 }(this, this.document, this.Core, this.console));

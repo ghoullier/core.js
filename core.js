@@ -47,7 +47,7 @@
         // Call module constructor
         var instance = new Class(properties, node);
         // Add event listener
-        core_bind_method(instance);
+        core_bind_method(instance, node);
         // Add Node attach point
         core_bind_attach(instance, node);
         // Module Life Cycle
@@ -73,7 +73,7 @@
     /////////////////////////////////////////////////////////////////////////////////////
     //                              Define public Core API
     /////////////////////////////////////////////////////////////////////////////////////
-    
+
     // Provide basic function binding, ensure function execution in a specific context
     // Possible calls: Core.bing(this.method, this); OR Core.bing(this, "method");
     Core.bind = function(/*Function|Object*/fn, /*Object|String*/context) {

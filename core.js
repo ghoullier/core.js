@@ -2,8 +2,8 @@
   // Define sandboxed global variables
   var d = w.document,
       c = w.console;
-  // Initialize
-  Core = w.Core || {};
+  // Core.js global object
+  var Core = w.Core || {};
 
   /////////////////////////////////////////////////////////////////////////////////////
   //                Define private Core methods

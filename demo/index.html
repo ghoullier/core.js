@@ -1,1 +1,17 @@
-
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Core.js Module Demo</title>
+  </head>
+  <body>
+    <div id="wrapper">
+      <section data-module="Demo">
+        <input data-attach="name" type="text" placeholder="What's your name?"/>
+        <button data-method="{'click':'sayMyName'}">Say My Name</button>
+      </section>
+    </div>
+    <!-- Scripts -->
+    <script src="../core.js"></script>
+    <script src="module/demo.js"></script>
+  </body>
+</html>

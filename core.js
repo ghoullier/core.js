@@ -32,7 +32,7 @@
     var core_bind_attach = function(/*Object*/instance, /*Node*/root) {
       var nodes = root.querySelectorAll("*[data-attach]");
       // Store all DOM Node reference in the $ object
-      instance.$ = {};
+      instance.$ = (typeof instance.$ === "object") ? instance.$ : {root: root};
       Core.forEach.call(nodes, function(/*Node*/node) {
         var attach = node.dataset.attach;
         this.$[attach] = node;
@@ -40,13 +40,14 @@
     };
     // Initialize a Node which a data-module attribute
     var core_init_by_node = function(/*Node*/node) {
-      var module = node.dataset.module,
+      var properties = node.dataset,
+          module = properties.module,
           Class = core_modules[module];
       if (typeof Class === "function") {
         // Call module constructor
-        var instance = new Class(node);
+        var instance = new Class(properties, node);
         // Add event listener
-        core_bind_method(instance, node);
+        core_bind_method(instance);
         // Add Node attach point
         core_bind_attach(instance, node);
         // Module Life Cycle

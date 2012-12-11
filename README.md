@@ -24,7 +24,7 @@ Define a new module with the following structure
 			if (this instanceof Class) {
 				// Initialize your module
 			} else {
-				throw new Error("");
+				throw new Error("Illegal constructor");
 			}
 		};
 		// Modules methods using prototype

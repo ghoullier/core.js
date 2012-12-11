@@ -6,10 +6,7 @@ A lightweight module manager
 Using Core.js
 --------------------------------------
 
-
 Include core.js file in the web of your body
---------------------------------------
-
 
 Javascript Part
 --------------------------------------

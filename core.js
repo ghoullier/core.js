@@ -24,8 +24,8 @@
 		var nodes = root.querySelectorAll("*[data-method]");
 		Core.forEach.call(nodes, function(/*Node*/node) {
 			var json = node.dataset.method.replace(/\'/g, "\""),
-					map = JSON.parse(json)
-					event;
+					map = JSON.parse(json),
+					event = null;
 			for (event in map) {
 				if (map.hasOwnProperty(event)) {
 					var method = map[event];

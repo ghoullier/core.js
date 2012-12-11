@@ -16,13 +16,13 @@
 		};
 		Core.mixin(Class.prototype, {
 			postCreate: function() {
-				w.alert("Module has been initialized by Core.js");
+				c.log("Module has been initialized by Core.js");
 			},
 			sayMyName: function() {
 				var name = this.$.name.value;
 				if (typeof name === "string" && name.length > 0) {
 					this.name = name;
-					w.alert("Your name is : " + name);
+					c.log("Your name is : " + name);
 				}
 			}
 		});

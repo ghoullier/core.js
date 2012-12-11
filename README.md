@@ -15,6 +15,7 @@ Javascript Part
 --------------------------------------
 
 Define a new module with the following structure
+```javascript
 (function(/*Window*/w, undefined) {
 	// Sandboxed global variables
 	var Core = w.Core,
@@ -39,11 +40,13 @@ Define a new module with the following structure
 		return Class;
 	}());
 }(this));
+```
 
 
 HTML Part
 --------------------------------------
-
+```html
 <div data-module="MyModule">
 	<button data-method="myMethod">myMethod<button>
 </div>
+```

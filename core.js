@@ -3,7 +3,7 @@
   var d = w.document,
       c = w.console;
   // Initialize
-  Core = Core || {};
+  Core = w.Core || {};
 
   /////////////////////////////////////////////////////////////////////////////////////
   //                Define private Core methods
@@ -110,4 +110,4 @@
       // Initialize modules of current document 
       core_init_recursive();
     }, false);
-}(this, this.document, this.Core, this.console));
+}(this));

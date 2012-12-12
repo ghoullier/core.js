@@ -1,3 +1,8 @@
+// ==ClosureCompiler==
+// @compilation_level SIMPLE_OPTIMIZATIONS
+// @output_file_name core.jquery.min.js
+// ==/ClosureCompiler==
+
 (function(w, undefined) {
 	// Define sandboxed global variables
 	var d = w.document,

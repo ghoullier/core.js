@@ -1,4 +1,4 @@
-;(function(root, doc, module) {
+(function(root, doc, module) {
   'use strict';
   var slice = Array.prototype.slice
   function $(selector) {

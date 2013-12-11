@@ -1,4 +1,4 @@
-;(function(root, doc, module) {
+(function(root, doc, module) {
   'use strict';
   function extend(object) {
     var self = Object.create(this)

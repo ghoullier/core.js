@@ -1,0 +1,26 @@
+{
+  "name": "core.js",
+  "version": "0.0.0",
+  "description": "Lightweight javascript toolbelt",
+  "main": "core.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://ghoullier@github.com/ghoullier/core.js.git"
+  },
+  "keywords": [
+    "javascript",
+    "toolbelt"
+  ],
+  "author": "ghoullier",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/ghoullier/core.js/issues"
+  },
+  "homepage": "https://github.com/ghoullier/core.js",
+  "devDependencies": {
+    "grunt": "~0.4.2"
+  }
+}

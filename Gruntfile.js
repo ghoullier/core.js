@@ -36,7 +36,7 @@ module.exports = function(grunt) {
       options: {
         asi: true,
         laxcomma: true,
-        validthis: false,
+        boss: true,
         globals: {
           console: false
         }

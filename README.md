@@ -1,4 +1,4 @@
-core.js Documentation
+core.js documentation
 ==================================================
 
 A lightweight toolbelt
@@ -10,7 +10,6 @@ npm install -g grunt-cli
 npm install && grunt
 ```
 
-
 Using core.js
 --------------------------------------
 
@@ -18,7 +17,6 @@ Include core.js file in the end of your body
 ```html
 <script src="dist/core.js"></script>
 ```
-
 
 Javascript Part
 --------------------------------------

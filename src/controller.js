@@ -15,6 +15,10 @@
               logger.error('Undefined method', method)
             }
           })
+          this.initialize()
+        },
+        initialize: function() {
+          // Abstract
         },
         $: function(selector) {
           return core.$(this.element, selector);

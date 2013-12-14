@@ -1,30 +1,62 @@
 module.exports = function(grunt) {
+  var port = grunt.option('port') || 8000
+    , jsFiles = ['src/base.js', 'src/dom.js', 'src/event.js', 'src/class.js']
   // Configuration de Grunt
   grunt.initConfig({
-    concat: {
-      options: {
-        separator: ';',
-      },
-      dist: {
-        src: ['src/base.js', 'src/dom.js', 'src/event.js', 'src/class.js'],
-        dest: 'dist/core.js'
-      }
+    pkg: grunt.file.readJSON('package.json'),
+    meta: {
+      banner:
+        '/*!\n' +
+        ' * <%= pkg.name %> <%= pkg.version %> (<%= grunt.template.today("yyyy-mm-dd, HH:MM") %>)\n' +
+        ' * <%= pkg.homepage %>\n' +
+        ' * MIT licensed\n' +
+        ' *\n' +
+        ' * Copyright (C) 2014 Grégory homepage\n' +
+        ' */'
     },
     uglify: {
       options: {
+        banner: '<%= meta.banner %>',
         separator: ';'
       },
       dist: {
-        src: ['src/base.js', 'src/dom.js', 'src/event.js', 'src/class.js'],
+        src: jsFiles,
         dest: 'dist/core.js'
+      }
+    },
+    connect: {
+      server: {
+        options: {
+          port: port,
+          base: '.'
+        }
+      }
+    },
+    jshint: {
+      options: {
+        asi: true,
+        laxcomma: true,
+        validthis: false,
+        globals: {
+          console: false
+        }
+      },
+      files: ['Gruntfile.js'].concat(jsFiles)
+    },
+    watch: {
+      main: {
+        files: ['Gruntfile.js'].concat(jsFiles),
+        tasks: 'default'
       }
     }
   })
 
-  grunt.loadNpmTasks('grunt-contrib-concat')
   grunt.loadNpmTasks('grunt-contrib-uglify')
+  grunt.loadNpmTasks('grunt-contrib-jshint')
+  grunt.loadNpmTasks('grunt-contrib-connect')
+  grunt.loadNpmTasks('grunt-contrib-watch')
 
   // Définition des tâches Grunt
-  grunt.registerTask('dev', ['concat:dist'])
-  grunt.registerTask('dist', ['uglify:dist'])
+  grunt.registerTask('default', ['jshint', 'uglify:dist'])
+  grunt.registerTask('server', ['watch', 'connect'])
 }

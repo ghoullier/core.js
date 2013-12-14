@@ -1,5 +1,4 @@
 (function(root, doc, module) {
-  'use strict';
   function extend(object) {
     var self = Object.create(this)
     if (!object) return self
@@ -15,6 +14,8 @@
     }
     return self
   }
-  module.extend = extend
-  module.create = create
+  module.Class = {
+    create: create,
+    extend: extend
+  }
 }(this, this.document, this.core))

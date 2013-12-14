@@ -1,6 +1,6 @@
 module.exports = function(grunt) {
   var port = grunt.option('port') || 8000
-    , jsFiles = ['src/base.js', 'src/dom.js', 'src/event.js', 'src/class.js']
+    , jsFiles = ['src/base.js', 'src/dom.js', 'src/event.js', 'src/class.js', 'src/controller.js']
   // Configuration de Grunt
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -11,7 +11,7 @@ module.exports = function(grunt) {
         ' * <%= pkg.homepage %>\n' +
         ' * MIT licensed\n' +
         ' *\n' +
-        ' * Copyright (C) 2014 Grégory homepage\n' +
+        ' * Copyright (C) 2014 Grégory Houllier\n' +
         ' */'
     },
     uglify: {
@@ -58,5 +58,5 @@ module.exports = function(grunt) {
 
   // Définition des tâches Grunt
   grunt.registerTask('default', ['jshint', 'uglify:dist'])
-  grunt.registerTask('server', ['watch', 'connect'])
+  grunt.registerTask('server', ['connect', 'watch'])
 }

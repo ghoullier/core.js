@@ -1,12 +1,19 @@
 (function(root, doc, module) {
   'use strict';
-  var Class = core.Class
+  var logger = console
+    , Class = core.Class
     , BaseController = Class.extend({
         constructor: function(element) {
-          this.element = element
-          this.on('click', '[data-method]', function(event) {
-            console.log('lou', this, event)
-            // Dynamic invocation
+          var instance = this
+          instance.element = element
+          instance.on('click', '[data-method]', function(event) {
+            var method = this.dataset.method
+              , handler = instance[method]
+            if ('function' === typeof handler) {
+              handler.call(instance, event)
+            } else {
+              logger.error('Undefined method', method)
+            }
           })
         },
         $: function(selector) {
@@ -21,8 +28,12 @@
       })
     , List = Class.extend({
         constructor: function() {
-          this.map = {}
-          this.instances = []
+          var self = this
+          self.map = {}
+          self.instances = []
+          doc.addEventListener('DOMContentLoaded', function() {
+            self.bootstrap(doc.docElement)
+          }, false)
         },
         add: function(name, factory) {
           this.map[name] = factory
@@ -40,7 +51,7 @@
             if (self.has(name)) {
               self.instances.push(self.get(name).create(context))
             } else {
-              // Undefined controller
+              logger.error('Undefined controller', name)
             }
           })
         }

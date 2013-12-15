@@ -6,13 +6,13 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
     meta: {
       banner:
-        '/*!\n' +
+        '/*\n' +
         ' * <%= pkg.name %> <%= pkg.version %> (<%= grunt.template.today("yyyy-mm-dd, HH:MM") %>)\n' +
         ' * <%= pkg.homepage %>\n' +
         ' * MIT licensed\n' +
         ' *\n' +
         ' * Copyright (C) 2014 Grégory Houllier\n' +
-        ' */'
+        ' */\n'
     },
     uglify: {
       options: {

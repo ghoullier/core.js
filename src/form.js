@@ -3,14 +3,24 @@
   var form = Object.create(null)
   function serialize(node) {
     var map = {}
-    module.$$(node, '[name]').forEach(function(node) {
-      map[node.getAttribute('name')] = node.value
+    module.$$(node, 'input[name]').forEach(function(input) {
+      var name = input.getAttribute('name')
+      if ('checkbox' === input.getAttribute('type')) {
+        map[name] = input.checked
+      } else {
+        map[name] = input.value
+      }
     })
     return map
   }
   function unserialize(node, data) {
-    module.$$(node, '[name]').forEach(function(node) {
-      node.value = data[node.getAttribute('name')]
+    module.$$(node, 'input[name]').forEach(function(input) {
+      var value = data[input.getAttribute('name')]
+      if ('checkbox' === input.getAttribute('type')) {
+        input.checked = value
+      } else {
+        input.value = value
+      }
     })
   }
   form.serialize = serialize

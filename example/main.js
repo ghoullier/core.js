@@ -4,7 +4,8 @@
   core.controllers.add('Main', BaseController.extend({
     todos: [],
     initialize: function() {
-      this.$input = this.$('input')
+      this.$text = this.$('input[type="text"]')
+      this.$completed = this.$('input[type="checkbox"]')
       this.$list = this.$('ol')
       this.$form = this.$('form')
       this.on('submit', 'form', this.bind(this.submit))
@@ -12,9 +13,9 @@
     },
     add: function(todo) {
       var child = doc.createElement('li')
-      todo = ('undefined' === typeof todo) ? {value: this.$input.value} : todo
+      todo = ('undefined' === typeof todo) ? {value: this.$text.value, completed: this.$completed.checked} : todo
       child.textContent = todo.value
-      child.classList.add(['active', todo.active].join('-'))
+      child.classList.add(todo.completed ? 'completed' : 'active')
       this.$list.appendChild(child)
     },
     clear: function() {
@@ -44,7 +45,7 @@
     reset: function() {
       core.form.unserialize(this.$form, {
         value: '',
-        active: 'off'
+        completed: false
       })
     }
   }))

@@ -18,7 +18,7 @@
         this.storage.removeItem(key)
       },
       has: function(key) {
-        return 'undefined' !== typeof this.storage.getItem(key)
+        return null !== this.storage.getItem(key)
       }
     })
   var storage = Object.create(null)

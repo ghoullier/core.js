@@ -27,7 +27,7 @@
           return core.$$(this.element, selector);
         },
         on: function(type, selector, handler) {
-          core.on(this.element, type, selector, this.bind(handler))
+          core.on(this.element, type, selector, handler)
         },
         bind: function(fn) {
           return core.bind(fn, this)

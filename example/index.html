@@ -7,18 +7,15 @@
   <body>
     <div class="wrapper">
       <main data-controller="Main">
-        <input type="text"></input>
-        <button data-method="add">add</button>
-        <button data-method="clear">clear</button>
+        <h1>Todo List</h1>
+        <form>
+          <label for="value">Todo</label><input type="text" name="value"></input>
+          <label for="status">status</label><input type="checkbox" name="status"></input>
+          <button type="submit">add</button>
+          <button type="button" data-method="clear">clear</button>
+        </form>
         <ol></ol>
       </main>
-      <aside data-controller="Register">
-        <form>
-          <label for="login">login</label><input type="text" name="login"></input>
-          <label for="mail">mail</label><input type="mail" name="mail"></input>
-          <button>register</button>
-        </form>
-      </aside>
     </div>
     <script src="../dist/core.js"></script>
     <script src="../src/storage.js"></script>

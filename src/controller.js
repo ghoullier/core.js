@@ -28,6 +28,9 @@
         },
         on: function(type, selector, handler) {
           core.on(this.element, type, selector, handler)
+        },
+        bind: function(fn) {
+          return core.bind(fn, this)
         }
       })
     , List = Class.extend({
@@ -36,11 +39,12 @@
           self.map = {}
           self.instances = []
           doc.addEventListener('DOMContentLoaded', function() {
-            self.bootstrap(doc.docElement)
+            self.bootstrap(doc.documentElement)
           }, false)
         },
         add: function(name, factory) {
           this.map[name] = factory
+          return this
         },
         get: function(name) {
           return this.map[name]

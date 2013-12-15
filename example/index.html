@@ -3,13 +3,22 @@
   <head>
     <title>core.js example</title>
     <meta charset="UTF-8" />
+    <style>
+      .completed {
+        text-decoration: line-through;
+      }
+    </style>
   </head>
   <body>
-    <div>
+    <div class="wrapper">
       <main data-controller="Main">
-        <input type="text"></input>
-        <button data-method="add">add</button>
-        <button data-method="clear">clear</button>
+        <h1>Todo List</h1>
+        <form>
+          <label for="value">Todo</label><input type="text" name="value"></input>
+          <label for="completed">completed</label><input type="checkbox" name="completed"></input>
+          <button type="submit">add</button>
+          <button type="button" data-method="clear">clear</button>
+        </form>
         <ol></ol>
       </main>
     </div>

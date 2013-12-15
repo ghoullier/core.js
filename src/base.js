@@ -10,7 +10,7 @@
    */
   function bind(fn, context) {
     return function bound() {
-      fn.call(context, arguments)
+      fn.apply(context, arguments)
     }
   }
   // Public API

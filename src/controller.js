@@ -39,7 +39,7 @@
           self.map = {}
           self.instances = []
           doc.addEventListener('DOMContentLoaded', function() {
-            self.bootstrap(doc.docElement)
+            self.bootstrap(doc.documentElement)
           }, false)
         },
         add: function(name, factory) {

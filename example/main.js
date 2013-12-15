@@ -14,6 +14,7 @@
       var child = doc.createElement('li')
       todo = ('undefined' === typeof todo) ? {value: this.$input.value} : todo
       child.textContent = todo.value
+      child.classList.add(['active', todo.active].join('-'))
       this.$list.appendChild(child)
     },
     clear: function() {
@@ -43,7 +44,7 @@
     reset: function() {
       core.form.unserialize(this.$form, {
         value: '',
-        status: 'off'
+        active: 'off'
       })
     }
   }))

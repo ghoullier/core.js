@@ -16,6 +16,8 @@ module.exports = function(grunt) {
     },
     uglify: {
       options: {
+        sourceMap: '../dist/core.js.map',
+        sourceMapRoot: '/',
         banner: '<%= meta.banner %>',
         separator: ';'
       },

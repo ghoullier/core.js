@@ -1,49 +1,41 @@
-core.js Documentation
+core.js documentation
 ==================================================
 
-A lightweight module manager
+A lightweight toolbelt
 
-Using Core.js
+Get started
+--------------------------------------
+```sh
+npm install -g grunt-cli
+npm install && grunt
+```
+
+Using core.js
 --------------------------------------
 
-Include core.js file in the web of your body
+Include core.js file in the end of your body
+```html
+<script src="dist/core.js"></script>
+```
 
 Javascript Part
 --------------------------------------
 
 Define a new module with the following structure
 ```javascript
-(function(/*Window*/w, undefined) {
-	// Sandboxed global variables
-	var Core = w.Core,
-		m = Core.modules || {};
-	// Define your module, Vanilla JS
-	m.MyModule = (function() {
-		// Module constructor
-		var Class = function(properties, node) {
-			if (this instanceof Class) {
-				// Initialize your module
-			} else {
-				throw new Error("Illegal constructor");
-			}
-		};
-		// Modules methods using prototype
-		Class.prototype.postCreate = function() {
-			// Automatically fired by core.js when module is initialized
-		};
-		Class.prototype.myMethod = function() {
-			// TODO: Do what do you want
-		};
-		return Class;
-	}());
-}(this));
+;(function(root, doc, core) {
+  core.controllers.add('Main', core.BaseController.extend({
+    action: function() {
+      console.log('action')
+    }
+  }))
+}(this, this.document, this.core))
 ```
-
 
 HTML Part
 --------------------------------------
 ```html
-<div data-module="MyModule">
-	<button data-method="myMethod">myMethod<button>
+<div data-controller="Main">
+  <button data-method="action">action</button>
 </div>
 ```

@@ -1,0 +1,29 @@
+{
+  "name": "core.js",
+  "version": "0.1.0",
+  "description": "Lightweight javascript toolbelt",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://ghoullier@github.com/ghoullier/core.js.git"
+  },
+  "keywords": [
+    "javascript",
+    "toolbelt"
+  ],
+  "author": "ghoullier",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ghoullier/core.js/issues"
+  },
+  "homepage": "https://github.com/ghoullier/core.js",
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-uglify": "~0.2.7",
+    "grunt-contrib-connect": "~0.5.0",
+    "grunt-contrib-jshint": "~0.7.2",
+    "grunt-contrib-watch": "~0.5.3"
+  }
+}

@@ -1,4 +1,4 @@
-core.js documentation
+core.js 0.2.1 [![Build Status](https://travis-ci.org/ghoullier/core.js.png?branch=master)](https://travis-ci.org/ghoullier/core.js)
 ==================================================
 
 A lightweight toolbelt

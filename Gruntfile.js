@@ -58,7 +58,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-connect')
   grunt.loadNpmTasks('grunt-contrib-watch')
 
-  // Définition des tâches Grunt
+  // Tache par défaut
   grunt.registerTask('default', ['jshint', 'uglify:dist'])
+  // Tache de test
+  grunt.registerTask('test', ['jshint'])
+  // Tache serveur
   grunt.registerTask('server', ['connect', 'watch'])
 }

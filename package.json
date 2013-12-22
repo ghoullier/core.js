@@ -5,6 +5,9 @@
   "scripts": {
     "test": "grunt test"
   },
+ "engines": {
+    "node": ">=0.10.0"
+  },
   "repository": {
     "type": "git",
     "url": "https://ghoullier@github.com/ghoullier/core.js.git"

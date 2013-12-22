@@ -1,6 +1,6 @@
 {
   "name": "core.js",
-  "version": "0.2.3",
+  "version": "0.3.0",
   "description": "Lightweight javascript toolbelt",
   "scripts": {
     "test": "grunt test"

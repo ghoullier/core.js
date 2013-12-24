@@ -3,20 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <title>Test core.js</title>
-    <link rel="stylesheet" href="../node_modules/mocha/mocha.css" />
-    <script src="../node_modules/expect/expect.js"></script>
-    <script src="../node_modules/mocha/mocha.js"></script>
+    <link rel="stylesheet" href="../../node_modules/mocha/mocha.css" />
+    <script src="../../node_modules/expect/expect.js"></script>
+    <script src="../../node_modules/mocha/mocha.js"></script>
     <script>mocha.setup('bdd')</script>
     <script>
       function assert(expr, msg) {
         if (!expr) throw new Error(msg || 'failed');
       }
     </script>
-    <script src="../dist/core.js"></script>
+    <script src="../../dist/core.js"></script>
     <script src="./test.js"></script>
     <script>
       onload = function() {
-        console.log('onload')
         mocha.checkLeaks();
         mocha.globals(['core']);
         var runner = mocha.run();

@@ -69,7 +69,7 @@ module.exports = function(grunt) {
   // Tache de vérification de la synthaxe
   grunt.registerTask('synthax', ['jshint'])
   // Tache de tests unitaires
-  grunt.registerTask('tests', ['mocha'])
+  grunt.registerTask('tests', ['synthax', 'mocha'])
   // Tache serveur
   grunt.registerTask('server', ['connect', 'watch'])
 }

@@ -58,6 +58,7 @@ module.exports = function(grunt) {
     }
   })
 
+  // Chargement des tâches npm
   grunt.loadNpmTasks('grunt-contrib-uglify')
   grunt.loadNpmTasks('grunt-contrib-jshint')
   grunt.loadNpmTasks('grunt-contrib-connect')

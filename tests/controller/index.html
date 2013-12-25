@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Test Controller</title>
+    <link rel="stylesheet" href="../../node_modules/mocha/mocha.css" />
+    <script src="../../node_modules/expect/expect.js"></script>
+    <script src="../../node_modules/mocha/mocha.js"></script>
+    <script>mocha.setup('bdd')</script>
+    <script>
+      function assert(expr, msg) {
+        if (!expr) throw new Error(msg || 'failed');
+      }
+    </script>
+    <script src="../../dist/core.js"></script>
+    <script src="./test.js"></script>
+    <script>
+      onload = function() {
+        mocha.checkLeaks();
+        mocha.globals(['core']);
+        var runner = mocha.run();
+      };
+    </script>
+  </head>
+  <body>
+    <div id="mocha"></div>
+    <div id="wrapper" hidden>
+      <section data-controller="Main">
+        <h1 id="title">Titre</h1>
+        <ol></ol>
+        <button data-method="add">Add</button>
+      </section>
+    </div>
+  </body>
+</html>

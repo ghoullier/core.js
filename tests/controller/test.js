@@ -1,6 +1,6 @@
-describe('core#controller', function() {
+describe('core#controllers', function() {
   var BaseController = core.BaseController
-  describe('#extend', function() {
+  describe('#add', function() {
     it('should define a controller', function() {
       core.controllers.add('Main', BaseController.extend({
         initialize: function() {

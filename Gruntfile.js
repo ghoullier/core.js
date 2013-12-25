@@ -47,7 +47,7 @@ module.exports = function(grunt) {
     },
     mocha: {
       test: {
-        src: ['tests/**/*.html']
+        src: ['tests/**/test.html']
       }
     },
     watch: {

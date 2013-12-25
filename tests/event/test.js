@@ -5,21 +5,19 @@ describe('core#event', function() {
       core.on(wrapper, 'click', 'h1', function onClick() {
         done()
       })
-      document.getElementById('title').click()
+      phantom.click(document.getElementById('title'))
     })
-    it('should manager event delegation', function(done) {
+    it('should manage event delegation', function(done) {
       var list = core.$('ol')
-        , elements = core.$$(list, 'li')
+        , elements = core.$$('li', list)
         , count = 0
       core.on(list, 'click', 'li', function onClick() {
         ++count
-        if (3 === elements.length) {
+        if (3 === count) {
           done()
         }
       })
-      elements.forEach(function(node) {
-        node.click()
-      })
+      elements.forEach(phantom.click)
     })
   })
 })

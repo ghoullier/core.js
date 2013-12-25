@@ -1,12 +1,13 @@
 describe('core#Class', function() {
+  var Class = core.Class
   describe('#extend', function() {
     it('should define a class Human', function() {
-      Human = core.Class.extend({
+      Human = Class.extend({
         talk: function() {
           return 'Be a Human is pretty cool'
         }
       })
-      assert(core.Class.isPrototypeOf(Human), 'core.Class is the prototype of Human')
+      assert(Class.isPrototypeOf(Human), 'Class is the prototype of Human')
     })
   })
   describe('#create', function() {
@@ -26,7 +27,7 @@ describe('core#Class', function() {
           return 'Be a Developer is pretty cool'
         }
       })
-      assert(core.Class.isPrototypeOf(Developer), 'Class is the prototype of Developer')
+      assert(Class.isPrototypeOf(Developer), 'Class is the prototype of Developer')
       assert(Human.isPrototypeOf(Developer), 'Human is the prototype of Developer')
     })
   })

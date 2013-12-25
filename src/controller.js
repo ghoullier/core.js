@@ -20,11 +20,11 @@
         initialize: function() {
           // Abstract
         },
-        $: function(selector) {
-          return core.$(this.element, selector);
+        $: function(selector, context) {
+          return core.$(selector, context || this.element);
         },
-        $$: function(selector) {
-          return core.$$(this.element, selector);
+        $$: function(selector, context) {
+          return core.$$(selector, context || this.element);
         },
         on: function(type, selector, handler) {
           core.on(this.element, type, selector, handler)
@@ -36,30 +36,46 @@
     , List = Class.extend({
         constructor: function() {
           var self = this
-          self.map = {}
+          self.definitions = {}
           self.instances = []
           doc.addEventListener('DOMContentLoaded', function() {
             self.bootstrap(doc.documentElement)
           }, false)
         },
         add: function(name, factory) {
-          this.map[name] = factory
+          this.definitions[name] = factory
           return this
         },
         get: function(name) {
-          return this.map[name]
+          return this.definitions[name]
         },
         has: function(name) {
           return BaseController.isPrototypeOf(this.get(name))
         },
-        bootstrap: function(node) {
+        getInstanceByNode: function(node) {
+          var instances = this.instances.filter(function(value) {
+            return value.node === node
+          })
+          return instances.length > 0 ? instances[0].controller : null
+        },
+        bootstrap: function(context) {
           var self = this
-          core.$$(node, '[data-controller]').forEach(function(context) {
-            var name = context.dataset.controller
-            if (self.has(name)) {
-              self.instances.push(self.get(name).create(context))
+          core.$$('[data-controller]', context).forEach(function(node) {
+            var dataset = node.dataset
+            if (null === self.getInstanceByNode(node)) {
+              var name = dataset.controller
+              if (self.has(name)) {
+                self.instances.push({
+                  node: node,
+                  controller: self.get(name).create(node)
+                })
+              } else if (typeof dataset.lazyload !== 'undefined') {
+                logger.log('Wait for controller definition', name)
+              } else {
+                logger.error('Undefined controller', name)
+              }
             } else {
-              logger.error('Undefined controller', name)
+              // Controller already instantiated
             }
           })
         }

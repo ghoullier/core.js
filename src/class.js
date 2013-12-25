@@ -1,4 +1,10 @@
 (function(root, doc, module) {
+  /**
+   * Extend class
+   * @param  {Object} object prototype
+   * @return {Object}        Extended class
+   * @api public
+   */
   function extend(object) {
     var self = Object.create(this)
     if (!object) return self
@@ -7,6 +13,11 @@
     })
     return self
   }
+  /**
+   * Create a instance of the current class
+   * @return {Object} Construtor argument
+   * @api public
+   */
   function create() {
     var self = Object.create(this)
     if (typeof self.constructor === 'function') {

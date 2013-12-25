@@ -7,10 +7,11 @@
    * @param  {Function} fn      Function to bin
    * @param  {Object}   context Execution context
    * @return {Function}         Bounded function
+   * @api public
    */
   function bind(fn, context) {
     return function bound() {
-      fn.apply(context, arguments)
+      return fn.apply(context, arguments)
     }
   }
   // Public API

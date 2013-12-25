@@ -45,6 +45,11 @@ module.exports = function(grunt) {
       },
       files: ['Gruntfile.js'].concat(jsFiles)
     },
+    mocha: {
+      test: {
+        src: ['tests/**/*.html']
+      }
+    },
     watch: {
       main: {
         files: ['Gruntfile.js'].concat(jsFiles),
@@ -53,15 +58,19 @@ module.exports = function(grunt) {
     }
   })
 
+  // Chargement des tâches npm
   grunt.loadNpmTasks('grunt-contrib-uglify')
   grunt.loadNpmTasks('grunt-contrib-jshint')
   grunt.loadNpmTasks('grunt-contrib-connect')
   grunt.loadNpmTasks('grunt-contrib-watch')
+  grunt.loadNpmTasks('grunt-mocha')
 
   // Tache par défaut
-  grunt.registerTask('default', ['jshint', 'uglify:dist'])
-  // Tache de test
-  grunt.registerTask('test', ['jshint'])
+  grunt.registerTask('default', ['synthax', 'uglify:dist'])
+  // Tache de vérification de la synthaxe
+  grunt.registerTask('synthax', ['jshint'])
+  // Tache de tests unitaires
+  grunt.registerTask('tests', ['synthax', 'mocha'])
   // Tache serveur
   grunt.registerTask('server', ['connect', 'watch'])
 }

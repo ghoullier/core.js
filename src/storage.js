@@ -19,6 +19,9 @@
       },
       has: function(key) {
         return null !== this.storage.getItem(key)
+      },
+      clear: function() {
+        this.storage.clear()
       }
     })
   var storage = Object.create(null)

@@ -14,7 +14,7 @@
    * @param  {DOMNode} target      Element to test
    * @param  {String} selector  Selector value
    * @return {Node|Boolean}     False or Target
-   * @api public
+   * @api private
    */
   function getCurrentTarget(node, target, selector) {
     if (matchesSelector.call(target, selector)) return target

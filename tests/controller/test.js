@@ -12,17 +12,17 @@ describe('core#controllers', function() {
           this.$list.appendChild(element)
         },
         size: function() {
-          return this.$list.length
+          return this.$$('li', this.$list).length
         }
       }))
     })
-/*
     it('should bootstrap element by Dom attributes', function() {
-      //core.controllers.bootstrap(document.documentElement)
+      core.controllers.bootstrap(document.documentElement)
     })
-    it('should test a controller', function(done) {
-      var instance = core.controllers.instances[0]
-        , button = core.$('button')
+    it('should test controller methods', function(done) {
+      var node = core.$('section')
+        , instance = core.controllers.getInstanceByNode(node)
+        , button = core.$('button', node)
         , size = 3
       for (var i = 0; i < size; ++i) {
         button.click()
@@ -33,6 +33,5 @@ describe('core#controllers', function() {
         }
       }, 0)
     })
-*/
   })
 })

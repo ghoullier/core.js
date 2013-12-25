@@ -1,5 +1,5 @@
 /*
- * core.js 0.3.0 (2013-12-25, 18:18)
+ * core.js 0.3.0 (2013-12-25, 18:23)
  * https://github.com/ghoullier/core.js
  * MIT licensed
  *

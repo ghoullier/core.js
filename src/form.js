@@ -1,9 +1,15 @@
 (function(root, doc, module) {
   'use strict';
   var form = Object.create(null)
+  /**
+   * Convert form data to a <key, value> object
+   * @param  {DOMNode} node Form to serialize
+   * @return {Object}       Form data
+   * @api public
+   */
   function serialize(node) {
     var map = {}
-    module.$$(node, 'input[name]').forEach(function(input) {
+    module.$$('input[name]', node).forEach(function(input) {
       var name = input.getAttribute('name')
       if ('checkbox' === input.getAttribute('type')) {
         map[name] = input.checked
@@ -13,8 +19,15 @@
     })
     return map
   }
+  /**
+   * Map object to a form values
+   * @param  {DOMNode} node Form node
+   * @param  {Object} data  Form data
+   * @return {void}
+   * @api public
+   */
   function unserialize(node, data) {
-    module.$$(node, 'input[name]').forEach(function(input) {
+    module.$$('input[name]', node).forEach(function(input) {
       var value = data[input.getAttribute('name')]
       if ('checkbox' === input.getAttribute('type')) {
         input.checked = value

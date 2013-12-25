@@ -21,10 +21,10 @@
           // Abstract
         },
         $: function(selector) {
-          return core.$(this.element, selector);
+          return core.$(selector, this.element);
         },
         $$: function(selector) {
-          return core.$$(this.element, selector);
+          return core.$$(selector, this.element);
         },
         on: function(type, selector, handler) {
           core.on(this.element, type, selector, handler)
@@ -54,7 +54,7 @@
         },
         bootstrap: function(node) {
           var self = this
-          core.$$(node, '[data-controller]').forEach(function(context) {
+          core.$$('[data-controller]', node).forEach(function(context) {
             var name = context.dataset.controller
             if (self.has(name)) {
               self.instances.push(self.get(name).create(context))

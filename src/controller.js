@@ -36,28 +36,37 @@
     , List = Class.extend({
         constructor: function() {
           var self = this
-          self.map = {}
+          self.definitions = {}
           self.instances = []
           doc.addEventListener('DOMContentLoaded', function() {
             self.bootstrap(doc.documentElement)
           }, false)
         },
         add: function(name, factory) {
-          this.map[name] = factory
+          this.definitions[name] = factory
           return this
         },
         get: function(name) {
-          return this.map[name]
+          return this.definitions[name]
         },
         has: function(name) {
           return BaseController.isPrototypeOf(this.get(name))
         },
-        bootstrap: function(node) {
+        getInstanceByNode: function(node) {
+          var instances = this.instances.filter(function(value) {
+            return value.node === node
+          })
+          return instances.length > 0 ? instances[0] : null
+        },
+        bootstrap: function(context) {
           var self = this
-          core.$$('[data-controller]', node).forEach(function(context) {
-            var name = context.dataset.controller
+          core.$$('[data-controller]', context).forEach(function(node) {
+            var name = node.dataset.controller
             if (self.has(name)) {
-              self.instances.push(self.get(name).create(context))
+              self.instances.push({
+                node: node,
+                controller: self.get(name).create(node)
+              })
             } else {
               logger.error('Undefined controller', name)
             }

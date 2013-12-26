@@ -42,9 +42,8 @@ HTML Part
 
 Roadmap
 --------------------------------------
-- v0.5.0:
-- v0.6.0: Mise en place d'un mécanisme de micro-templating
-- v0.7.0: Mise en place d'un storage cookie
+- v0.5.0: Mise en place d'un mécanisme de micro-templating
+- v0.6.0: Mise en place d'un storage cookie
 
 Changelog
 --------------------------------------

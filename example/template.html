@@ -6,7 +6,7 @@
   </head>
   <body>
     <div class="wrapper">
-      <main data-controller="Template" data-template-id="template:main">
+      <main data-controller="Template" data-template-uri="template.ctpl">
         <form data-on data-on-submit="add">
           <input type="text" name="content" autofocus />
           <button>add</button>
@@ -16,8 +16,8 @@
     </div>
     <script src="../dist/core.js"></script>
     <script src="./template.js"></script>
-    <script id="template:main" type="core/template">
-      <li>{{content}}</li>
+    <script id="template:main" type="text/x-corejs-template">
+      <li><strong>{{content}}</strong><button>delete</button></li>
     </script>
   </body>
 </html>

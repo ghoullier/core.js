@@ -15,7 +15,7 @@
     if (params.id) {
       template = getTemplateById(params.id)
     } else if (params.uri) {
-      template = getTemplateById(params.uri)
+      template = getTemplateByUri(params.uri)
     }
     return parse(compile(template, params.data))
   }
@@ -68,7 +68,10 @@
    * @api public
    */
   function getTemplateByUri(uri) {
-    throw new Error('Not implemented function')
+    var loader = new XMLHttpRequest()
+    loader.open('GET', uri, false)
+    loader.send(null)
+    return 200 === loader.status ? loader.responseText.trim() : null
   }
   // Define submodule
   var template = Object.create(null)

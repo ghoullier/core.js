@@ -1,3 +1,4 @@
+
 ;(function(root, doc, core) {
   core.controllers.add('Template', core.BaseController.extend({
     initialize: function() {
@@ -6,10 +7,13 @@
     },
     add: function(event) {
       event.preventDefault()
-      this.$list.appendChild(core.template.build({
-        id: this.element.dataset.templateId,
-        data: core.form.serialize(this.$form)
-      }))
+      this.$list.appendChild(core.template.build(this.getTemplateArgs()))
+      this.reset()
+    },
+    getTemplateData: function() {
+      return core.form.serialize(this.$form)
+    },
+    reset: function() {
       core.form.unserialize(this.$form, {
         content: ''
       })

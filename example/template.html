@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>core.js example</title>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <main data-controller="Template" data-template-uri="template.ctpl">
+        <form data-on data-on-submit="add">
+          <input type="text" name="content" autofocus />
+          <button>add</button>
+        </form>
+        <ol></ol>
+      </main>
+    </div>
+    <script src="../dist/core.js"></script>
+    <script src="./template.js"></script>
+    <script id="template:main" type="text/x-corejs-template">
+      <li><strong>{{content}}</strong><button>delete</button></li>
+    </script>
+  </body>
+</html>

@@ -49,6 +49,17 @@
         initialize: function() {
           // Abstract
         },
+        getTemplateArgs: function() {
+          var dataset = this.element.dataset
+          return {
+            id: dataset.templateId,
+            uri: dataset.templateUri,
+            data: this.getTemplateData()
+          }
+        },
+        getTemplateData: function() {
+          // Abstract
+        },
         $: function(selector, context) {
           return core.$(selector, context || this.element);
         },

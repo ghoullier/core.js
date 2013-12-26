@@ -25,6 +25,7 @@
     }
     return self
   }
+  // Export module
   module.Class = {
     create: create,
     extend: extend

@@ -24,8 +24,10 @@
         this.storage.clear()
       }
     })
+  // Define submodule
   var storage = Object.create(null)
   storage.locale = Store.create(root.localStorage)
   storage.session = Store.create(root.sessionStorage)
+  // Export submodule
   module.storage = storage
 }(this, this.document, this.core))

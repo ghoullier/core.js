@@ -114,6 +114,7 @@
           })
         }
       })
-    module.controllers = List.create()
-    module.BaseController = BaseController
+  // Export module
+  module.controllers = List.create()
+  module.BaseController = BaseController
 }(this, this.document, this.core))

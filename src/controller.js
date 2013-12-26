@@ -4,18 +4,47 @@
     , Class = core.Class
     , BaseController = Class.extend({
         constructor: function(element) {
-          var instance = this
-          instance.element = element
-          instance.on('click', '[data-method]', function(event) {
-            var method = this.dataset.method
-              , handler = instance[method]
-            if ('function' === typeof handler) {
-              handler.call(instance, event)
-            } else {
-              logger.error('Undefined method', method)
-            }
-          })
+          // Set element property
+          this.element = element
+          // Event delegation
+          this.delegate()
+          // Call abstract method
           this.initialize()
+        },
+        delegate: function() {
+          var instance = this
+            , prefix = 'on'
+            , namespace = ['data', prefix].join('-')
+          // List event types
+          var types = []
+          instance.$$('[' + namespace + ']').forEach(function(node) {
+            types = types.concat(Object.keys(node.dataset)
+              .filter(function(handler) {
+                return handler.startsWith(prefix) && handler.length > prefix.length
+              })
+              .map(function(handler) {
+                return handler.substring(prefix.length).toLowerCase()
+              }))
+          })
+          types
+            // Filter duplicates entries
+            .filter(function(item, index, self) {
+              return self.indexOf(item) === index;
+            })
+            // Add event delegation
+            .forEach(function(type) {
+              var selector = '[' + [namespace, type].join('-') + ']'
+              instance.on(type, selector, function(event) {
+                var property = prefix + core.string.firstUpperCase(type)
+                  , method = this.dataset[property]
+                  , handler = instance[method]
+                if ('function' === typeof handler) {
+                  handler.call(instance, event)
+                } else {
+                  logger.error('Undefined method', this, method, property)
+                }
+              })
+            })
         },
         initialize: function() {
           // Abstract
@@ -25,6 +54,11 @@
         },
         $$: function(selector, context) {
           return core.$$(selector, context || this.element);
+        },
+        empty: function(node) {
+          while (node.firstChild) {
+            node.removeChild(node.firstChild)
+          }
         },
         on: function(type, selector, handler) {
           core.on(this.element, type, selector, handler)

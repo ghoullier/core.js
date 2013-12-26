@@ -1,6 +1,5 @@
 (function(root, doc, module) {
   'use strict';
-  var form = Object.create(null)
   /**
    * Convert form data to a <key, value> object
    * @param  {DOMNode} node Form to serialize
@@ -36,7 +35,10 @@
       }
     })
   }
+  // Define submodule
+  var form = Object.create(null)
   form.serialize = serialize
   form.unserialize = unserialize
+  // Export submodule
   module.form = form
 }(this, this.document, this.core))

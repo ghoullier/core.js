@@ -13,11 +13,11 @@
     <div class="wrapper">
       <main data-controller="Main">
         <h1>Todo List</h1>
-        <form>
-          <label for="value">Todo</label><input type="text" name="value"></input>
+        <form data-on data-on-submit="submit">
+          <label for="value">Todo</label><input type="text" name="value" autofocus></input>
           <label for="completed">completed</label><input type="checkbox" name="completed"></input>
           <button type="submit">add</button>
-          <button type="button" data-method="clear">clear</button>
+          <button type="button" data-on data-on-click="clear">clear</button>
         </form>
         <ol></ol>
       </main>

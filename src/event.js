@@ -41,5 +41,6 @@
       }
     }, false)
   }
+  // Export module
   module.on = on
 }(this, this.document, this.core))

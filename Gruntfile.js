@@ -1,6 +1,6 @@
 module.exports = function(grunt) {
   var port = grunt.option('port') || 8000
-    , jsFiles = ['src/base.js', 'src/dom.js', 'src/event.js', 'src/class.js', 'src/controller.js', 'src/storage.js', 'src/form.js']
+    , jsFiles = ['src/base.js', 'src/dom.js', 'src/event.js', 'src/class.js', 'src/controller.js', 'src/storage.js', 'src/form.js', 'src/string.js']
   // Configuration de Grunt
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),

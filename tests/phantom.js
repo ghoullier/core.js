@@ -1,6 +1,6 @@
 // Fix phantomjs issue
 // http://stackoverflow.com/questions/16802795/click-not-working-in-mocha-phantomjs-on-certain-elements
-(function(root, doc, module) {
+;(function(root, doc, module) {
   function trigger(node, type) {
     var event = doc.createEvent('MouseEvent');
     event.initMouseEvent(
@@ -22,3 +22,16 @@
   }
   module.click = click
 }(this, this.document, this.phantom = {}))
+;(function(root, doc, module) {
+  if (!String.prototype.startsWith) {
+    Object.defineProperty(String.prototype, 'startsWith', {
+      enumerable: false,
+      configurable: false,
+      writable: false,
+      value: function (searchString, position) {
+        position = position || 0;
+        return this.indexOf(searchString, position) === position;
+      }
+    });
+  }
+}(this, this.document, this.phantom))

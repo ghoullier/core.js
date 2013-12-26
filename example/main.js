@@ -1,14 +1,12 @@
 ;(function(root, doc, core) {
-  var BaseController = core.BaseController
-    , storage = core.storage.locale
-  core.controllers.add('Main', BaseController.extend({
+  var storage = core.storage.locale
+  core.controllers.add('Main', core.BaseController.extend({
     todos: [],
     initialize: function() {
       this.$text = this.$('input[type="text"]')
       this.$completed = this.$('input[type="checkbox"]')
       this.$list = this.$('ol')
       this.$form = this.$('form')
-      this.on('submit', 'form', this.bind(this.submit))
       this.load()
     },
     add: function(todo) {
@@ -19,10 +17,7 @@
       this.$list.appendChild(child)
     },
     clear: function() {
-      var $list = this.$list
-      while ($list.firstChild) {
-        $list.removeChild($list.firstChild)
-      }
+      this.empty(this.$list)
       storage.set('Main:list', [])
     },
     load: function() {

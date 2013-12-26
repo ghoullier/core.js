@@ -23,6 +23,7 @@
     context = context || doc.documentElement
     return slice.call(context.querySelectorAll(selector))
   }
+  // Export module
   module.$ = $
   module.$$ = $$
 }(this, this.document, this.core))

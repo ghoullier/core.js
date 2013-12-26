@@ -13,11 +13,12 @@
       }
     </script>
     <script src="../../dist/core.js"></script>
+    <script src="../phantom.js"></script>
     <script src="./test.js"></script>
     <script>
       onload = function() {
         mocha.checkLeaks();
-        mocha.globals(['core']);
+        mocha.globals(['core', 'phantom']);
         var runner = mocha.run();
       };
     </script>

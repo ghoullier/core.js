@@ -14,7 +14,7 @@
    * @param  {DOMNode} target      Element to test
    * @param  {String} selector  Selector value
    * @return {Node|Boolean}     False or Target
-   * @api public
+   * @api private
    */
   function getCurrentTarget(node, target, selector) {
     if (matchesSelector.call(target, selector)) return target
@@ -41,5 +41,6 @@
       }
     }, false)
   }
+  // Export module
   module.on = on
 }(this, this.document, this.core))

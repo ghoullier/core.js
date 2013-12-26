@@ -15,4 +15,22 @@ describe('core#string', function() {
       assert(null === core.string.firstUpperCase(null), 'First char is not modified')
     })
   })
+  describe('#precompile', function() {
+    it('Precompile a template with array arguments', function() {
+      var template = '{{0}} to {{1}}'
+        , args = ['Hello', 'you']
+      assert('Hello to you' === core.string.precompile(template, args), 'Incorrect precompile return')
+    })
+    it('Precompile a template with object arguments', function() {
+      var template = '{{hello}} {{name.first}} {{name.last}}'
+        , args = {
+          hello: 'Hello',
+          name: {
+            first: 'Grégory',
+            last: 'Houllier'
+          }
+        }
+      assert('Hello Grégory Houllier' === core.string.precompile(template, args), 'Incorrect precompile return')
+    })
+  })
 })

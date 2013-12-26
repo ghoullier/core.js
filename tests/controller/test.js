@@ -1,6 +1,9 @@
 describe('core#controllers', function() {
   var BaseController = core.BaseController
   describe('#add', function() {
+    it('String should have a method startsWith', function() {
+      'abc'.startsWith('a')
+    })
     it('should define a controller', function() {
       core.controllers.add('Main', BaseController.extend({
         initialize: function() {
@@ -25,7 +28,7 @@ describe('core#controllers', function() {
         , button = core.$('button', node)
         , size = 3
       for (var i = 0; i < size; ++i) {
-        button.click()
+        phantom.click(button)
       }
       setTimeout(function() {
         if (size === instance.size()) {

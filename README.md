@@ -51,7 +51,8 @@ HTML Part
 Roadmap
 --------------------------------------
 - v0.6.0: Utilitaires AJAX
-- v0.7.0: Mise en place d'un storage cookie
+- v0.7.0: Routing
+- v0.8.0: Storage cookie
 
 Changelog
 --------------------------------------

@@ -1,4 +1,4 @@
-core.js 0.5.1 [![Build Status](https://travis-ci.org/ghoullier/core.js.png?branch=master)](https://travis-ci.org/ghoullier/core.js)
+core.js 0.5.2 [![Build Status](https://travis-ci.org/ghoullier/core.js.png?branch=master)](https://travis-ci.org/ghoullier/core.js)
 ==================================================
 
 core.js is a lightweight (<5Kb) toolbelt for ES5+ browser

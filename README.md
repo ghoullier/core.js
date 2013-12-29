@@ -21,23 +21,28 @@ npm install && grunt
 Using core.js
 --------------------------------------
 
-Include core.js file in the end of your body
-```html
-<script src="dist/core.js"></script>
+Build your customized application file
+```sh
+browserify app.js -o app.build.js
 ```
 
-Javascript Part
+Include your application file in your page
+```html
+<script src="app.build.js"></script>
+```
+
+Javascript Part (app.js)
 --------------------------------------
 
 Define a new module with the following structure
 ```javascript
-;(function(root, doc, core) {
-  core.controllers.add('Main', core.BaseController.extend({
-    action: function() {
-      console.log('action')
-    }
-  }))
-}(this, this.document, this.core))
+var manager = require('./core/manager')
+  , Controller = require('./core/controller')
+manager.add('Main', Controller.extend({
+  action: function() {
+    console.log('action')
+  }
+}))
 ```
 
 HTML Part
@@ -50,9 +55,10 @@ HTML Part
 
 Roadmap
 --------------------------------------
-- v0.6.0: Utilitaires AJAX
-- v0.7.0: Routing
-- v0.8.0: Storage cookie
+- v0.6.0: Support de l'API CommonJS
+- v0.7.0: Utilitaires AJAX
+- v0.8.0: Routing
+- v0.9.0: Storage cookie
 
 Changelog
 --------------------------------------

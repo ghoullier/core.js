@@ -3,7 +3,7 @@
   "version": "0.5.0",
   "description": "Lightweight javascript toolbelt",
   "scripts": {
-    "test": "grunt tests"
+    "test": "grunt tests --force"
   },
   "engines": {
     "node": ">=0.10.0"

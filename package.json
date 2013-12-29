@@ -1,7 +1,7 @@
 {
   "name": "core.js",
-  "version": "0.5.2",
-  "description": "Lightweight javascript toolbelt",
+  "version": "0.6.0",
+  "description": "Lightweight javascript toolbelt with CommonJS API",
   "scripts": {
     "test": "grunt tests --force"
   },

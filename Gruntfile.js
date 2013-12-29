@@ -1,6 +1,6 @@
 module.exports = function(grunt) {
   var port = grunt.option('port') || 8000
-    , jsFiles = ['src/*.js']
+    , coreFiles = ['core/*.js']
   // Configuration de Grunt
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -15,15 +15,11 @@ module.exports = function(grunt) {
         ' */\n'
     },
     uglify: {
-      options: {
-        sourceMap: '../dist/core.js.map',
-        sourceMapRoot: '/',
-        banner: '<%= meta.banner %>',
-        separator: ';'
-      },
       dist: {
-        src: jsFiles,
-        dest: 'dist/core.js'
+        files: {
+          'example/base/index.min.js': ['example/base/index.js'],
+          'example/template/index.min.js': ['example/template/index.js']
+        }
       }
     },
     connect: {
@@ -43,7 +39,7 @@ module.exports = function(grunt) {
           console: false
         }
       },
-      files: ['Gruntfile.js'].concat(jsFiles)
+      files: ['Gruntfile.js'].concat(coreFiles)
     },
     mocha: {
       test: {
@@ -52,8 +48,16 @@ module.exports = function(grunt) {
     },
     watch: {
       main: {
-        files: ['Gruntfile.js'].concat(jsFiles),
+        files: ['Gruntfile.js'].concat(coreFiles),
         tasks: 'default'
+      }
+    },
+    browserify: {
+      dist: {
+        files: {
+          'example/base/index.js': ['example/base/src.js'],
+          'example/template/index.js': ['example/template/src.js']
+        }
       }
     }
   })
@@ -64,9 +68,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-connect')
   grunt.loadNpmTasks('grunt-contrib-watch')
   grunt.loadNpmTasks('grunt-mocha')
+  grunt.loadNpmTasks('grunt-browserify')
 
   // Tache par défaut
-  grunt.registerTask('default', ['synthax', 'uglify:dist'])
+  grunt.registerTask('default', ['synthax', 'browserify:dist', 'uglify:dist'])
   // Tache de vérification de la synthaxe
   grunt.registerTask('synthax', ['jshint'])
   // Tache de tests unitaires

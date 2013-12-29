@@ -1,5 +1,5 @@
 describe('core#Class', function() {
-  var Class = core.Class
+  var Class = require('../../core/class')
   describe('#extend', function() {
     it('should define a class Human', function() {
       Human = Class.extend({

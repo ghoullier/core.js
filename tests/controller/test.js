@@ -1,11 +1,10 @@
 describe('core#controllers', function() {
-  var BaseController = core.BaseController
+  var dom = require('../../core/dom')
+    , manager = require('../../core/manager')
+    , Controller = require('../../core/controller')
   describe('#add', function() {
-    it('String should have a method startsWith', function() {
-      'abc'.startsWith('a')
-    })
     it('should define a controller', function() {
-      core.controllers.add('Main', BaseController.extend({
+      manager.add('Main', Controller.extend({
         initialize: function() {
           this.$list = this.$('ol')
         },
@@ -20,12 +19,12 @@ describe('core#controllers', function() {
       }))
     })
     it('should bootstrap element by Dom attributes', function() {
-      core.controllers.bootstrap(document.documentElement)
+      manager.bootstrap(document.documentElement)
     })
     it('should test controller methods', function(done) {
-      var node = core.$('section')
-        , instance = core.controllers.getInstanceByNode(node)
-        , button = core.$('button', node)
+      var node = dom.$('section')
+        , instance = manager.getInstanceByNode(node)
+        , button = dom.$('button', node)
         , size = 3
       for (var i = 0; i < size; ++i) {
         phantom.click(button)

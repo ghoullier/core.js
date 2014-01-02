@@ -1,6 +1,7 @@
 var dom = require('./dom')
   , events = require('./events')
   , string = require('./string')
+  , template = require('./template')
   , utils = require('./utils')
   , Class = require('./class')
 
@@ -43,7 +44,11 @@ var Controller = Class.extend({
               if ('function' === typeof handler) {
                 handler.call(instance, event)
               } else {
-                console.error('Undefined method', this, method, property)
+                var message = 'Undefined function "{{method}}" for the handler "{{property}}"'
+                console.error(template.compile(message, {
+                  method: method,
+                  property: property
+                }))
               }
             })
           })
@@ -63,10 +68,10 @@ var Controller = Class.extend({
         // Abstract
       },
       $: function(selector, context) {
-        return dom.$(selector, context || this.element);
+        return dom.$(selector, context || this.element)
       },
       $$: function(selector, context) {
-        return dom.$$(selector, context || this.element);
+        return dom.$$(selector, context || this.element)
       },
       empty: function(node) {
         while (node.firstChild) {

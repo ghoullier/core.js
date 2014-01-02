@@ -1,5 +1,5 @@
-var Class = require('./class')
-  , Store = Class.extend({
+define(['./class'], function(Class) {
+  var Store = Class.extend({
     constructor: function(storage) {
       this.storage = storage
     },
@@ -21,5 +21,9 @@ var Class = require('./class')
       this.storage.clear()
     }
   })
-module.exports.locale = Store.create(window.localStorage)
-module.exports.session = Store.create(window.sessionStorage)
+
+  return {
+    locale: Store.create(window.localStorage),
+    session: Store.create(window.sessionStorage)
+  }
+})

@@ -1,11 +1,5 @@
-var dom = require('./dom')
-  , events = require('./events')
-  , string = require('./string')
-  , template = require('./template')
-  , utils = require('./utils')
-  , Class = require('./class')
-
-var Controller = Class.extend({
+define(['./class', './dom', './events', './string', './template', './utils'], function(Class, dom, events, string, template, utils) {
+  return Class.extend({
       constructor: function(element) {
         // Set element property
         this.element = element
@@ -85,4 +79,4 @@ var Controller = Class.extend({
         return utils.bind(fn, this)
       }
     })
-module.exports = Controller
+})

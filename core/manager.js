@@ -1,7 +1,5 @@
-var dom = require('./dom')
-  , Class = require('./class')
-  , Controller = require('./controller')
-  , Manager = Class.extend({
+define(['./class', './controller', './dom'], function(Class, Controller, dom) {
+  return Class.extend({
       constructor: function() {
         var self = this
         self.definitions = {}
@@ -54,4 +52,4 @@ var dom = require('./dom')
         return self
       }
     })
-module.exports = Manager.create()
+})

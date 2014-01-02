@@ -6,9 +6,14 @@ var dom = require('./dom')
         var self = this
         self.definitions = {}
         self.instances = []
-        document.addEventListener('DOMContentLoaded', function() {
+        var bootstrap = function() {
           self.bootstrap(document.documentElement)
-        }, false)
+        }
+        if (['complete', 'loaded', 'interactive'].indexOf(document.readyState) > -1) {
+          bootstrap()
+        } else {
+          document.addEventListener('DOMContentLoaded', bootstrap, false)
+        }
       },
       add: function(name, factory) {
         this.definitions[name] = factory
@@ -46,6 +51,7 @@ var dom = require('./dom')
             // Controller already instantiated
           }
         })
+        return self
       }
     })
 module.exports = Manager.create()

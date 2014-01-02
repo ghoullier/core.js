@@ -97,6 +97,7 @@ module.exports = function(grunt) {
 
   // Tache de build
   grunt.registerTask('build', ['browserify:tests', 'uglify:tests', 'browserify:examples', 'uglify:examples'])
+  grunt.registerTask('examples', ['browserify:examples', 'uglify:examples'])
   // Tache par défaut
   grunt.registerTask('default', ['synthax', 'build'])
   // Tache de vérification de la synthaxe

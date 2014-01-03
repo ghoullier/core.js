@@ -70,5 +70,5 @@ Changelog
 
 Thanks to [@putaindecode](https://twitter.com/putaindecode)
 --------------------------------------
-[Post: De jQuery à VanillaJS](http://putaindecode.fr/posts/js/de-jquery-a-vanillajs/)
-[Post: Comment se passer de libraries/frameworks JavaScript](http://putaindecode.fr/posts/js/comment-se-passer-de-libraries-frameworks-javascript/)
+- [Post: De jQuery à VanillaJS](http://putaindecode.fr/posts/js/de-jquery-a-vanillajs/)
+- [Post: Comment se passer de libraries/frameworks JavaScript](http://putaindecode.fr/posts/js/comment-se-passer-de-libraries-frameworks-javascript/)

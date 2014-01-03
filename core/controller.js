@@ -32,7 +32,7 @@ var Controller = Class.extend({
         types
           // Filter duplicates entries
           .filter(function(item, index, self) {
-            return self.indexOf(item) === index;
+            return self.indexOf(item) === index
           })
           // Add event delegation
           .forEach(function(type) {

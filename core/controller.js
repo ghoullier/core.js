@@ -1,4 +1,11 @@
-define(['./class', './dom', './events', './string', './template', './utils'], function(Class, dom, events, string, template, utils) {
+define([
+  './class',
+  './dom',
+  './events',
+  './string',
+  './template',
+  './utils'
+], function(Class, dom, events, string, template, utils) {
   return Class.extend({
       constructor: function(element) {
         // Set element property

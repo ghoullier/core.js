@@ -1,4 +1,5 @@
-define([], function() {
+define([
+], function() {
   /**
    * Set the first upper case for a given word
    * @param  {String} word Word to convert

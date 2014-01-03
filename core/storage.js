@@ -1,4 +1,6 @@
-define(['./class'], function(Class) {
+define([
+  './class'
+], function(Class) {
   var Store = Class.extend({
     constructor: function(storage) {
       this.storage = storage

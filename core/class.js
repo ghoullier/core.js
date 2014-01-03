@@ -1,4 +1,5 @@
-define([], function() {
+define([
+], function() {
   /**
    * Extend class
    * @param  {Object} object prototype

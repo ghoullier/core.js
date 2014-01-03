@@ -1,4 +1,8 @@
-define(['./class', './controller', './dom'], function(Class, Controller, dom) {
+define([
+  './class',
+  './controller',
+  './dom'
+], function(Class, Controller, dom) {
   return Class.extend({
       constructor: function() {
         var self = this

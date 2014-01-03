@@ -1,4 +1,5 @@
-define([], function() {
+define([
+], function() {
   /**
    * Bind function to a specific contex
    * @param  {Function} fn      Function to bin

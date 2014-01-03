@@ -1,4 +1,5 @@
-define([], function() {
+define([
+], function() {
   var docEl = document.documentElement
     , matchesSelector =
         docEl.matchesSelector ||

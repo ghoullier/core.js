@@ -1,4 +1,6 @@
-define(['./dom'], function(dom) {
+define([
+  './dom'
+], function(dom) {
   /**
    * Convert form data to a <key, value> object
    * @param  {DOMNode} node Form to serialize

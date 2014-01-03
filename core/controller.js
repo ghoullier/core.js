@@ -38,7 +38,7 @@ var Controller = Class.extend({
           .forEach(function(type) {
             var selector = '[' + [namespace, type].join('-') + ']'
             instance.on(type, selector, function(event) {
-              var property = prefix + string.firstUpperCase(type)
+              var property = prefix + string.toPascalCase(type)
                 , method = this.dataset[property]
                 , handler = instance[method]
               if ('function' === typeof handler) {

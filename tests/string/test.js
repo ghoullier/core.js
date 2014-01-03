@@ -5,15 +5,15 @@ describe('core#string', function() {
       assert('function' === typeof String.prototype.startsWith, 'Missing startsWith function in String.prototype')
     })
   })
-  describe('#firstUpperCase', function() {
+  describe('#toPascalCase', function() {
     it('String transform the first letter of a string', function() {
-      assert('Function' === string.firstUpperCase('function'), 'First char is not modified')
+      assert('Function' === string.toPascalCase('function'), 'First char is not modified')
     })
     it('String transform work an empty string', function() {
-      assert('' === string.firstUpperCase(''), 'First char is not modified')
+      assert('' === string.toPascalCase(''), 'First char is not modified')
     })
     it('String transform work a null value', function() {
-      assert(null === string.firstUpperCase(null), 'First char is not modified')
+      assert(null === string.toPascalCase(null), 'First char is not modified')
     })
   })
 })

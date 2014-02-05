@@ -1,4 +1,5 @@
-define([], function() {
+define([
+], function() {
   // Module variables
   var patternRegExp = /\{\{([\w\*\.]*?)\}\}/g
     , dotRegExp = /([^\.]+)/g

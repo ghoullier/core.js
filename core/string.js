@@ -4,7 +4,7 @@
  * @return {String}      Converted word
  * @api public
  */
-function toPascalCase(word) {
+function firstUpperCase(word) {
   return word ? word.charAt(0).toUpperCase() + word.substring(1) : word
 }
-module.exports.toPascalCase = toPascalCase
+exports.firstUpperCase = firstUpperCase

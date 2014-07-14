@@ -17,7 +17,7 @@ function serialize(node) {
   })
   return map
 }
-module.exports.serialize = serialize
+exports.serialize = serialize
 
 /**
  * Map object to a form values
@@ -36,4 +36,4 @@ function unserialize(node, data) {
     }
   })
 }
-module.exports.unserialize = unserialize
+exports.unserialize = unserialize

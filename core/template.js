@@ -1,7 +1,7 @@
 // Module variables
 var patternRegExp = /\{\{([\w\*\.]*?)\}\}/g
-  , dotRegExp = /([^\.]+)/g
-  , parser = document.createElement('div')
+var dotRegExp = /([^\.]+)/g
+var parser = document.createElement('div')
 /**
  * Build Node fragment
  * @param  {Object} params Build parameters
@@ -17,7 +17,7 @@ function build(params) {
   }
   return parse(compile(template, params.data))
 }
-module.exports.build = build
+exports.build = build
 
 /**
  * Compile template
@@ -30,14 +30,14 @@ function compile(template, object) {
   var args = arguments.length > 2 ? arguments : object
   return template.replace(patternRegExp, function(value, property) {
     var key
-      , map = args
+    var map = args
     while ((key = dotRegExp.exec(property)) && (key = key[1])) {
       map = map ? (key == '*' ? map : map[key]) : null
     }
     return map == void 0 ? '' : map
   })
 }
-module.exports.compile = compile
+exports.compile = compile
 
 /**
  * Parse HTML string
@@ -53,7 +53,7 @@ function parse(html) {
   }
   return fragment
 }
-module.exports.parse = parse
+exports.parse = parse
 
 /**
  * Get template by id
@@ -65,7 +65,7 @@ function getTemplateById(id) {
   var template = document.getElementById(id)
   return template ? template.innerHTML.trim() : null
 }
-module.exports.getTemplateById = getTemplateById
+exports.getTemplateById = getTemplateById
 
 /**
  * Get template by uri
@@ -79,4 +79,4 @@ function getTemplateByUri(uri) {
   loader.send(null)
   return 200 === loader.status ? loader.responseText.trim() : null
 }
-module.exports.getTemplateByUri = getTemplateByUri
+exports.getTemplateByUri = getTemplateByUri

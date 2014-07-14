@@ -1,1 +1,1 @@
-<li><strong>{{content}}</strong><button>delete</button></li>
+<li><strong>{{content}}</strong><button>remove</button></li>

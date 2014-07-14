@@ -10,4 +10,4 @@ function bind(fn, context) {
     return fn.apply(context, arguments)
   }
 }
-module.exports.bind = bind
+exports.bind = bind

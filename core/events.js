@@ -1,5 +1,5 @@
 var docEl = document.documentElement
-  , matchesSelector =
+var matchesSelector =
       docEl.matchesSelector ||
       docEl.webkitMatchesSelector ||
       docEl.mozMatchesSelector ||
@@ -39,4 +39,4 @@ function on(node, type, selector, handler) {
     }
   }, false)
 }
-module.exports.on = on
+exports.on = on

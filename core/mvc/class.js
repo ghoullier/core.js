@@ -12,7 +12,7 @@ function extend(object) {
   })
   return self
 }
-module.exports.extend = extend
+exports.extend = extend
 
 /**
  * Create a instance of the current class
@@ -26,4 +26,4 @@ function create() {
   }
   return self
 }
-module.exports.create = create
+exports.create = create

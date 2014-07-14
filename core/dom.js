@@ -10,7 +10,7 @@ function $(selector, context) {
   context = context || document.documentElement
   return context.querySelector(selector)
 }
-module.exports.$ = $
+exports.$ = $
 /**
  * Alias on querySelectorAll for an optional context
  * @param  {String} selector  CSS3 selector
@@ -22,4 +22,4 @@ function $$(selector, context) {
   context = context || document.documentElement
   return slice.call(context.querySelectorAll(selector))
 }
-module.exports.$$ = $$
+exports.$$ = $$

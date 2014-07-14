@@ -1,7 +1,9 @@
-var manager = require('../../core/manager')
-  , form = require('../../core/form')
-  , Controller = require('../../core/controller')
-  , storage = require('../../core/storage').locale
+//browserify examples/base/index.js -o examples/base/index.min.js -s examples/base/index.min.js
+
+var manager    = require('../../core/mvc/manager')
+var Controller = require('../../core/mvc/controller')
+var form       = require('../../core/form')
+var storage    = require('../../core/storage').locale
 
 manager.add('Main', Controller.extend({
   todos: [],

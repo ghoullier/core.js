@@ -1,4 +1,4 @@
-core.js 0.6.0 [![Build Status](https://travis-ci.org/ghoullier/core.js.png?branch=master)](https://travis-ci.org/ghoullier/core.js)
+core.js 0.6.1 [![Build Status](https://travis-ci.org/ghoullier/core.js.png?branch=master)](https://travis-ci.org/ghoullier/core.js)
 ==================================================
 
 core.js is a lightweight (<5Kb) toolbelt for ES5+ browser with CommonJS API
@@ -67,3 +67,8 @@ Changelog
 - v0.4.0: Amélioration du gestionnaire d'évènements des controllers
 - v0.3.0: Mise en place des tests unitaires via Mocha
 - v0.2.0: Intégration de l'outil de build grunt
+
+Thanks to [@putaindecode](https://twitter.com/putaindecode)
+--------------------------------------
+- [Post: De jQuery à VanillaJS](http://putaindecode.fr/posts/js/de-jquery-a-vanillajs/)
+- [Post: Comment se passer de libraries/frameworks JavaScript](http://putaindecode.fr/posts/js/comment-se-passer-de-libraries-frameworks-javascript/)

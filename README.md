@@ -1,6 +1,8 @@
 core.js 0.6.0 [![Build Status](https://travis-ci.org/ghoullier/core.js.png?branch=master)](https://travis-ci.org/ghoullier/core.js)
 ==================================================
 
+> Project is no longer supported
+
 core.js is a lightweight (<5Kb) toolbelt for ES5+ browser with CommonJS API
 
 Features
